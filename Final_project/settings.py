@@ -154,6 +154,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 # media settings
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -187,5 +189,4 @@ SITE_URL = 'http://test1.com:8000'
 PAYPAL_NOTIFY_URL = 'http://test1.com/a-very-hard-to-guess-url'
 PAYPAL_RECEIVER_EMAIL = 'ciaran.darcy1-facilitator@gmail.com'
 
-
-TINYMCE_JS_ROOT=os.path.join(BASE_DIR,"static","js","tinymce", "tinymce.min.js")
+TINYMCE_JS_ROOT = os.path.join(BASE_DIR, "static", "js", "tinymce", "tinymce.min.js")

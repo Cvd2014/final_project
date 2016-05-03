@@ -14,5 +14,7 @@ django-paypal==0.2.7
 stripe
 django_social_widgets
 django-debug-toolbar==1.4
-
-
+gunicorn==19.4.5
+sqlparse==0.1.19
+dj-database-url==0.4.1
+mysql-python==1.2.5

@@ -1,0 +1,1 @@
+web: gunicorn herokuFinal_project.wsgi:application
