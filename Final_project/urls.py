@@ -17,19 +17,18 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from homepage import views as homeView
 from settings import MEDIA_ROOT
-from django.contrib.staticfiles import views
-
+from django.contrib.staticfiles import views as static_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',homeView.get_index, name="home"),
+    url(r'^$', homeView.get_index, name="home"),
     url(r'', include("accounts.urls")),
-    url(r'',include("contact.urls")),
-    url(r'^media/(?P<path>.*)$','django.views.static.serve',{'document_root':MEDIA_ROOT}),
+    url(r'', include("contact.urls")),
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT}),
     url(r'', include("blog.urls")),
     url(r'', include("store.urls")),
     # url(r'', include("forum.urls")),
-    #url(r'^/pages/about/$',include('django.contrib.flatpages.urls'), name='about'),
-     url(r'^static/(?P<path>.*)$', views.serve)
+    # url(r'^/pages/about/$',include('django.contrib.flatpages.urls'), name='about'),
+    url(r'^static/(?P<path>.*)$', static_views.serve)
 
 ]
