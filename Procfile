@@ -1,1 +1,1 @@
-web: gunicorn herokuFinal_project.wsgi:application
+web: gunicorn Final_project.wsgi:application
