@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+       {% block header %}
+       <header>
+       <div class="header-content">
+            <div class="header-content-inner">
+                <h1>The Bootcampers Hangout</h1>
+                <hr>
+                <p>Join now to join the community!</p>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+            </div>
+       </div>
+       </header>
+       {% endblock %}
+
+{% block content %}
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">About Us</h2>
+                    <hr class="light">
+                    <p class="text-faded">We are a team based in Dublin wiho recently finished a bootcamp togethere and decided that we wanted
+                    a place to communicate together after the course finished so this site was born.</p>
+                    <p>Since then we have grown steadily as each group of bootcamp graduates sign up and add their experiences and more importantly their ideas to the group
+                    </p>
+                    <a href="{% url 'register' %}" class="btn btn-default btn-xl">Resister Now!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">What we Have here</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-users wow bounceIn text-primary"></i>
+                        <h3>Welcoming Community</h3>
+                        <p class="text-muted">We all know you have to start somewhere</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-pencil wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                        <h3>Easy Registration</h3>
+                        <p class="text-muted">No need to fill in loads of forms use your Social Media</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-money wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                        <h3>Up to Date Store</h3>
+                        <p class="text-muted">With both our trading partners and our community together.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                        <h3>We want to hear your ideas</h3>
+                        <p class="text-muted">We are as strong as our members make us. We would love your input!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>What are you waiting for? Join Now!</h2>
+                <a href="{%url 'register'%}" class="btn btn-default btn-xl wow tada">SIGN UP!</a>
+            </div>
+        </div>
+    </aside>
+
+
+{% endblock %}

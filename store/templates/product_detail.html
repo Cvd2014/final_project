@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block header %}
+<div></div>
+{% endblock%}
+
+{% block content %}
+
+    <div class="row">
+        <br>
+        <div class='col-md-2 col-sm-3 text-center'>
+            <a class="story‐img" href="#">
+                <img src="http://placehold.it/100"
+                     style="width:100px;height:100px;background‐color:#12AB82;color:#ffffff;" class="img‐circle">
+            </a>
+            <p>{{ product.seller }}</p>
+        </div>
+        <div class="col-md-10 col-sm-9">
+            <h3>{{ product.name }}</h3>
+            <div class="row">
+                    <p>{{ product.description|linebreaks }}</p>
+
+                    <p>
+                        <button class=" btn btn-default" onclick="location.href='/store'">Back to Store</button>
+                        {{ product.published_date }}
+                    </p>
+                    <p><strong>Price: &#8364 </strong>{{ product.price }}</p>
+
+                   {% if product.seller.is_staff %}
+                    <p>{{ product.paypal_form.sandbox }}</p>
+                   {% else %}
+                   <p> This is a private sale please contact {{ product.seller }} directly.</p>
+                   {% endif %}
+
+                    {% if user.is_staff or user == product.seller %}
+                        <button class="btn btn-default" onclick="location.href='edit'">Edit</button>
+                        <button class="btn btn-default" onclick="location.href='delete'">Delete</button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <hr>
+
+{% endblock content %}

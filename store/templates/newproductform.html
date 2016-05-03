@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+
+{% block header %}
+<div></div>
+{% endblock%}
+
+{% block content %}
+
+    <h1>New Product to sell</h1>
+    <h2 id="warning">Please note before posting that all items for sale are at the discretion of the admins and may be removed without notice</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form | as_bootstrap }}
+        <button type="submit" class="btn btn-btn-info">Save</button>
+    </form>
+{% endblock content %}
+

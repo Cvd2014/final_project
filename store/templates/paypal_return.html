@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block header %}
+<div></div>
+{% endblock%}
+
+{% block content %}
+    <h1>You have Completed this purchase </h1>
+
+
+    <h2>Post</h2>
+    <p>You have made a payment of ${{  post['payment_gross']  }} to{{  post['reciever_email'] }} for {{ post['payment_item'] }} </p>
+
+
+    <h2>GET</h2>
+    {{ get }}
+
+
+{% endblock %}

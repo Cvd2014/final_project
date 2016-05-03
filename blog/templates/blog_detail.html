@@ -1,0 +1,55 @@
+
+
+{% extends "base.html" %}
+
+{% url 'blog/(?P<id>\d+)' as post_url %}
+{% load social_widgets %}
+{% block header %}
+<div id="offset">
+</div>
+{% endblock%}
+
+{% block content %}
+
+    <div class="row">
+        <br>
+        <div class='col-md-2 col-sm-3 text-center'>
+            <a class="story‐img" href="#">
+                <img src="http://placehold.it/100"
+                     style="width:100px;height:100px;background‐color:#12AB82;color:#ffffff;" class="img‐circle">
+            </a>
+            <p>{{ post.author }}</p>
+        </div>
+        <div class="col-md-10 col-sm-9">
+            <h3>{{ post.title }}</h3>
+            <div class="row">
+                <div class="col-xs-9">
+                    {% if post.image %}
+                        <img id="blogpic" src="/media/{{ post.image }}">
+
+                    {% endif %}
+                    <p>{{ post.content|linebreaks }}</p>
+
+                    <p>
+                        <button class=" btn btn-default" onclick="location.href='/blog'">Back to Blog</button>
+                        {{ post.published_date }}
+                        <strong>Views:</strong> {{ post.views }} |
+                        <strong>Tag:</strong> {{ post.tag }}
+                    </p>
+
+                    {% if user.is_staff or user == post.author %}
+                        <button class="btn btn-default" onclick="location.href='edit'">Edit</button>
+                        <button class="btn btn-default" onclick="location.href='delete'">Delete</button>
+                    {% endif %}
+
+                    {% social_widget_render "facebook/share_button.html" href="developers.facebook.com" %}
+                    {% social_widget_render "twitter/share_button.html" href="http://twitter.com" %}
+                    {% social_widget_render "google/plus_share_button.html" href="https://www.google.com" %}
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+
+{% block header %}
+
+<div id="offset">
+</div>
+
+{% endblock%}
+
+{% block content %}
+    <form role="form" method="post" action="{% url 'register' %}">
+    <legend>Create New Account</legend>
+        {% csrf_token %}
+        {{ form|as_bootstrap }}
+        <div class="form-group">
+                <button type="submit" class="btn btn-primary">Create Account</button>
+        </div>
+
+    </form>
+    <h4>Or login with Social Media</h4>
+            <div class="inline-group">
+
+                <button type="button" class="btn btn-facebook" style="background-color:#3B5998">
+                        <a href="{% url 'social:begin' 'facebook' %}?next=/">
+                            <i class="fa fa-facebook-square" style="color:white"></i>
+                            Login with Facebook
+                        </a>
+                </button>
+
+
+                <button type="button" class="btn btn-google" style="background-color:#dd4b39">
+                    <a href="{% url 'social:begin' 'google-oauth2' %}?next=/">
+                        <i class="fa fa-google-plus-square" style="color: white"></i>
+                        Login with Google
+                    </a>
+                </button>
+
+
+                <button type="button" class="btn btn-twitter" style="background-color:#67c9e8">
+                    <a href="{% url 'social:begin' 'twitter' %}?next=/">
+                        <i class="fa fa-twitter" style="color:whitesmoke"></i>
+                        Login with Twitter
+                    </a>
+                </button>
+            </div>
+
+{% endblock %}

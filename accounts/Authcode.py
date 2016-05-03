@@ -1,0 +1,8 @@
+fbkey=1569045323388670
+fbsecret="0e1d38a9b7e37ca6d02f2c190e097301"
+
+googlekey="852574789321-cnj93854f9sts5anfnfksjee77c3ft23"
+googlesecret="m6UtTreOD44ahoiXMITOKPDM"
+
+twitterkey="XNQWGJr3wDfoU48trAWMBqAXN"
+twittersecret="LkrIai5CS0pKAZT8Ui8sBkwAYVHR1xnCF0QceGzTxdn26pdpdm"

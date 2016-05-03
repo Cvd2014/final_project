@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block header %}
+<div></div>
+{% endblock%}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <button class="btn btn-default"><a href="{% url 'new_product' %}">Add Product for Sale</a></button>
+    {% endif %}
+    <div class="row">
+
+            {% for product in products %}
+            <div class="col-sm-4">
+
+               <div id="product_blurb">
+                   <h4>
+                       {{ product.name}}
+                   </h4>
+
+                   {% if product.image %}
+                        <img class="thumbnail" src="/media/{{ product.image }}"/>
+                   {% else %}
+                       <img src="https://www.google.ie/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiH_eiD0LPMAhUhI8AKHVitChIQjRwIBw&url=http%3A%2F%2Fwww.moserrealestateaz.com%2FAZ%2FContinental%2FReal_Estate%2FFor_Sale&psig=AFQjCNH1sHR99qMZLIG16S1yjWLog5jL4A&ust=1462011643714690">
+                   {% endif %}
+
+
+                    <p>Price: &#8364 {{product.price}}</p>
+                    <p>
+                        <button class=" btn btn-default" onclick="location.href={{ product.id }}">Read More</button>
+
+                    </p>
+               </div>
+               <hr>
+            </div>
+            {% endfor %}
+
+    </div>
+{% endblock %}
