@@ -5,6 +5,7 @@
 {% endblock%}
 
 {% block content %}
+    <div class="row">
     <form role="form" method="post" action="{% url 'login' %}" class="col-sm-8 col-sm-offset-2">
     <legend>Login</legend>
         {% csrf_token %}
@@ -14,6 +15,7 @@
         </div>
 
     </form>
+    </div>
   <h4>Or login with Social Media</h4>
             <div class="inline-group">
 
