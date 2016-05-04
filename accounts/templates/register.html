@@ -9,7 +9,7 @@
 {% endblock%}
 
 {% block content %}
-    <form role="form" method="post" action="{% url 'register' %}">
+    <form role="form" method="post" action="{% url 'register' %}"  class="col-sm-8 col-sm-offset-2">
     <legend>Create New Account</legend>
         {% csrf_token %}
         {{ form|as_bootstrap }}
@@ -29,12 +29,12 @@
                 </button>
 
 
-                <button type="button" class="btn btn-google" style="background-color:#dd4b39">
-                    <a href="{% url 'social:begin' 'google-oauth2' %}?next=/" style="color:white">
-                        <i class="fa fa-google-plus-square" style="color: white"></i>
-                        Login with Google
-                    </a>
-                </button>
+{#                 <button type="button" class="btn btn-google" style="background-color:#dd4b39">#}
+{#                    <a href="{% url 'social:begin' 'google-oauth2' %}?next=/" style="color:white">#}
+{#                        <i class="fa fa-google-plus-square" style="color: white"></i>#}
+{#                        Login with Google#}
+{#                    </a>#}
+{#                </button> #}
 
 
                 <button type="button" class="btn btn-twitter" style="background-color:#67c9e8">
