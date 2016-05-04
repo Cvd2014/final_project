@@ -1,5 +1,3 @@
-
-
 {% extends 'base.html' %}
 
 {% load staticfiles %}
@@ -22,7 +20,7 @@
             <div class ='col-md-2 col-sm-3 text-center'>
 
                 <h5>{{ user.name }}</h5>
-                <img class="img-circle thumbnail"  src="http://placeholder.it/100" style="width:100px;height:100px;background‐color:#12AB82;color:#ffffff;" >
+             {# <img class="img-circle thumbnail"  src="http://placeholder.it/100" style="width:100px;height:100px;background‐color:#12AB82;color:#ffffff;" >#}
                 <p id="post_data">{{ post.published_date }}</p>
                 <p id="post_data"><strong>Views:</strong> {{ post.views }} <br>
                     <strong>Tag:</strong> {{ post.tag }}</p>
