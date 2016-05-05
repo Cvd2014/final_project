@@ -4,3 +4,11 @@
     font-style: italic;
     color: grey;
 }
+
+.active{
+    color: #ffffff
+}
+
+body{
+    padding-top: 48px;
+    }

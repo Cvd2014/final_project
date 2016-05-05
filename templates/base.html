@@ -1,5 +1,5 @@
 {% load staticfiles %}
-{% url 'home' as home_url %}
+{% url 'request.get_full_path' as active_page %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +40,7 @@
 </head>
 
 <body>
-<nav id="mainNav" class="navbar navbar-default {% if request.get_full_path == home_url %}navbar-fixed-top{% endif %}">
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -60,13 +60,16 @@
                 <li>
                     <a class="page-scroll" href="/#about">About</a>
                 </li>
-                <li>
+
+                <li{% if active_page == 'contact' %} class="active"{% endif %}>
                     <a class="page-scroll" href="{% url 'contact' %}">Contact</a>
                 </li>
-                <li>
+
+                <li{% if active_page == 'blog' %} class="active"{% endif %}>
                     <a class="page-scroll" href="{% url 'blog' %}">Blog</a>
                 </li>
-                <li>
+
+                <li{% if active_page == 'store' %} class="active"{% endif %}>
                     <a class="page-scroll" href="{% url 'store' %}">Store</a>
                 </li>
 
@@ -77,10 +80,10 @@
                         <a class="page-scroll" href="{% url 'logout' %}">Logout</a>
                     </li>
                 {% else %}
-                    <li>
+                    <li{% if active_page == 'login' %} class="active"{% endif %}>
                         <a class="page-scroll" href="{% url 'login' %} ">Login</a>
                     </li>
-                    <li>
+                    <li{% if active_page == 'register' %} class="active"{% endif %}>
                         <a class="page-scroll" href="{% url 'register' %}">Register</a>
                     </li>
                 {% endif %}
