@@ -1,5 +1,7 @@
 {% load staticfiles %}
 {% url 'request.get_full_path' as active_page %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,59 +43,56 @@
 
 <body>
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapse" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand page-scroll" href="{% url 'home' %}">TechTalk</a>
-        </div>
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                 <a class="navbar-brand" href="{% url 'home' %}">TechTalk</a>
+            </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-left">
-                <li>
-                    <a class="page-scroll" href="/#about">About</a>
-                </li>
-
-                <li{% if active_page == 'contact' %} class="active"{% endif %}>
-                    <a class="page-scroll" href="{% url 'contact' %}">Contact</a>
-                </li>
-
-                <li{% if active_page == 'blog' %} class="active"{% endif %}>
-                    <a class="page-scroll" href="{% url 'blog' %}">Blog</a>
-                </li>
-
-                <li{% if active_page == 'store' %} class="active"{% endif %}>
-                    <a class="page-scroll" href="{% url 'store' %}">Store</a>
-                </li>
-
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                {% if user.is_authenticated %}
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="{% url 'logout' %}">Logout</a>
+                        <a class="page-scroll" href="/#about">About</a>
                     </li>
-                {% else %}
-                    <li{% if active_page == 'login' %} class="active"{% endif %}>
-                        <a class="page-scroll" href="{% url 'login' %} ">Login</a>
-                    </li>
-                    <li{% if active_page == 'register' %} class="active"{% endif %}>
-                        <a class="page-scroll" href="{% url 'register' %}">Register</a>
-                    </li>
-                {% endif %}
-            </ul>
 
+                    <li{% if active_page == 'contact' %} class="active"{% endif %}>
+                        <a  href="{% url 'contact' %}">Contact</a>
+                    </li>
+
+                    <li{% if active_page == 'blog' %} class="active"{% endif %}>
+                        <a  href="{% url 'blog' %}">Blog</a>
+                    </li>
+
+                    <li{% if active_page == 'store' %} class="active"{% endif %}>
+                        <a  href="{% url 'store' %}">Store</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-left">
+                     {% if user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'logout' %}">Logout</a>
+                        </li>
+                    {% else %}
+                        <li{% if active_page == 'login' %} class="active"{% endif %}>
+                            <a  href="{% url 'login' %} ">Login</a>
+                        </li>
+                        <li{% if active_page == 'register' %} class="active"{% endif %}>
+                        <a  href="{% url 'register' %}">Register</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-</nav>
+        <!-- /.container-fluid -->
+    </nav>
 
 {% block header %}
 {% endblock %}
@@ -113,6 +112,21 @@
     </p>
 
 </footer>
+
+
+<!-- Javascript-->
+    <script src={% static "js/jquery.js" %}></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src={% static "js/bootstrap.min.js"%}></script>
+
+    <!-- Plugin JavaScript -->
+    <script src={% static "js/jquery.easing.min.js"%}></script>
+    <script src={% static "js/jquery.fittext.js"%}></script>
+    <script src={% static "js/wow.min.js"%}></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src={% static "js/creative.js"%}></script>
 
 </body>
 </html>
