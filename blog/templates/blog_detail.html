@@ -37,14 +37,19 @@
                         <strong>Tag:</strong> {{ post.tag }}
                     </p>
 
+                    <h5>Like this post... Share it on Social Media</h5>
+                    <div class="inline-group col-sm-offset-4">
+                        <span class='st_facebook_hcount' displayText='Facebook'></span>
+                        <span class='st_twitter_hcount' displayText='Tweet'></span>
+                        <span class='st_googleplus_hcount' displayText='Google +'></span>
+                    </div>
+
                     {% if user.is_staff or user == post.author %}
                         <button class="btn btn-default" onclick="location.href='edit'">Edit</button>
                         <button class="btn btn-default" onclick="location.href='delete'">Delete</button>
                     {% endif %}
 
-                    {% social_widget_render "facebook/share_button.html" href="http://facebook.com" %}
-                    {% social_widget_render "twitter/share_button.html" href="http://twitter.com" %}
-                    {% social_widget_render "google/plus_share_button.html" href="https://www.google.com" %}
+
                 </div>
             </div>
         </div>
